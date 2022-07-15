@@ -1,11 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
 import { DefaultErrorComponent } from './default-error/default-error.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
-  { path: '**', component: DefaultErrorComponent }
+  { path: 'admin', component: AdminComponent},
+
+
+
+
+
+
+
+
+  { path: '**', component: DefaultErrorComponent },
 ];
 
 @NgModule({

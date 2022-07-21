@@ -7,6 +7,8 @@ import {
   getDoc,
   getDocs,
   setDoc,
+  query,
+  where,
 } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +18,9 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [users, setUsers] = useState(null);
   const [message, setMessage] = useState("");
+
+  const [students, setStudents] = useState(null);
+  const [professors, setProfessors] = useState(null);
 
   const [updateUsers, setUpdateUsers] = useState(false);
 
@@ -75,6 +80,22 @@ export const AuthContextProvider = ({ children }) => {
     setUsers(finalData);
   };
 
+  const getStudents = async () => {
+    const docuRef = collection(firebaseFirestore, "users");
+    const condition = where("rol", "==", "estudiante");
+    const initialData = await getDocs(query(docuRef, condition));
+    const finalData = initialData.docs.map((doc) => doc.data());
+    setStudents(finalData);
+  };
+
+  const getProfessors = async () => {
+    const docuRef = collection(firebaseFirestore, "users");
+    const condition = where("rol", "==", "profesor");
+    const initialData = await getDocs(query(docuRef, condition));
+    const finalData = initialData.docs.map((doc) => doc.data());
+    setProfessors(finalData);
+  };
+
   useEffect(() => {
     setUser(JSON.parse(window.localStorage.getItem("user")));
   }, []);
@@ -91,6 +112,14 @@ export const AuthContextProvider = ({ children }) => {
         getUsers,
         users,
         setUsers,
+        /* Estudents ---------- */
+        getStudents,
+        students,
+        setStudents,
+        /* Professors ---------- */
+        getProfessors,
+        professors,
+        setProfessors,
         message,
         setMessage,
         updateUsers,

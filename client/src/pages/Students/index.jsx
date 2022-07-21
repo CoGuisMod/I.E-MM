@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import { GeneralData } from "../../context/GeneralContext";
 import AdminGeneralCard from "../../components/Cards/AdminGeneralCard";
 import {
   faFileAlt,
   faSearch,
   faDatabase,
 } from "@fortawesome/free-solid-svg-icons";
+import SearchModal from "../../components/Modals/SearchModal";
 
 const index = () => {
+  const { setIsShowingModal } = GeneralData();
+
+  const handleConsult = () => {
+    setIsShowingModal(true);
+  };
+
   return (
     <section className="main-container">
       <h1 className="main-title">Administracion - Estudiantes</h1>
@@ -17,11 +25,13 @@ const index = () => {
           cardTitle="Formulario inscripcion"
         />
         <div className="general-grid mt-4">
-          <AdminGeneralCard
-            cardLink="consult"
-            cardIcon={faSearch}
-            cardTitle="Consultar estudiante"
-          />
+          <div onClick={handleConsult}>
+            <AdminGeneralCard
+              cardLink=""
+              cardIcon={faSearch}
+              cardTitle="Consultar estudiante"
+            />
+          </div>
           <AdminGeneralCard
             cardLink="database"
             cardIcon={faDatabase}
@@ -29,6 +39,7 @@ const index = () => {
           />
         </div>
       </div>
+      <SearchModal userType="student" />
     </section>
   );
 };

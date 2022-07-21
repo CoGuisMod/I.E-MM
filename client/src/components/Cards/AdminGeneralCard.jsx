@@ -8,10 +8,10 @@ const AdminGeneralCard = ({ cardLink, cardIcon, cardTitle }) => {
       to={cardLink}
       className="flex justify-start items-center gap-2 bg-clr-secondary-one rounded-3xl max-w-xs p-4"
     >
-      <div className="text-5xl">
+      <div className="text-6xl">
         <FontAwesomeIcon icon={cardIcon} />
       </div>
-      <h3 className="font-bold text-xl sm:text-2xl">{cardTitle}</h3>
+      <h3 className="font-bold text-2xl">{cardTitle}</h3>
     </Link>
   );
 };

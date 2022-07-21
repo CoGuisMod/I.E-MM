@@ -13,7 +13,7 @@ import {
 const Navbar = () => {
   return (
     <aside className="absolute left-0 top-0 p-4 h-screen">
-      <div className="flex flex-col gap-4 bg-clr-secondary-one rounded-full text-3xl px-2 py-4 h-full">
+      <div className="flex flex-col gap-4 bg-clr-secondary-one rounded-full text-4xl px-2 py-4 h-full">
         <FontAwesomeIcon icon={faBars} />
 
         <nav className="flex flex-col justify-start items-center gap-3">
@@ -26,7 +26,7 @@ const Navbar = () => {
           <Link to="/admin/professors" className="nav-link">
             <FontAwesomeIcon icon={faUserTie} />
           </Link>
-          <Link to="/admin/assignatures" className="nav-link">
+          <Link to="/admin/academic_tree" className="nav-link">
             <FontAwesomeIcon icon={faBookOpen} />
           </Link>
         </nav>

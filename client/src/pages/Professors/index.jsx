@@ -9,7 +9,7 @@ const index = () => {
       <div className="sub-container">
         <div className="general-grid">
           <AdminGeneralCard
-            cardLink="consult"
+            cardLink=""
             cardIcon={faSearch}
             cardTitle="Consultar profesor"
           />

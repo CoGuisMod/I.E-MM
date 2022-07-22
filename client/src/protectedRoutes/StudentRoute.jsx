@@ -8,7 +8,7 @@ const StudentRoute = ({ children }) => {
   if (!user) {
     return <Navigate to="/" />;
   }
-  if (user?.rol !== "student") {
+  if (user?.rol !== "estudiante") {
     return <Navigate to="/" />;
   }
 

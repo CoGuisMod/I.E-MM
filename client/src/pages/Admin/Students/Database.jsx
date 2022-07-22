@@ -8,7 +8,10 @@ const Database = () => {
     <section className="main-container">
       <h1 className="main-title">Administracion - Estudiantes</h1>
       <div className="sub-container">
-        <SubTitleCard Icon={FaDatabase} SubTitle="Base de Datos Estudiantes" />
+        <SubTitleCard
+          Icon={<FaDatabase />}
+          SubTitle="Base de Datos Estudiantes"
+        />
         <StudentsTable />
       </div>
     </section>

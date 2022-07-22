@@ -7,7 +7,7 @@ import { FaFileAlt, FaSearch, FaDatabase } from "react-icons/fa";
 const index = () => {
   const { setIsShowingModal } = GeneralData();
 
-  const handleConsult = () => {
+  const handleSearch = () => {
     setIsShowingModal(true);
   };
 
@@ -18,10 +18,10 @@ const index = () => {
         <AdminGeneralCard
           cardLink="form"
           cardIcon={<FaFileAlt />}
-          cardTitle="Formulario inscripcion"
+          cardTitle="Inscribir Estudiante"
         />
         <div className="general-grid mt-4">
-          <div onClick={handleConsult}>
+          <div onClick={handleSearch}>
             <AdminGeneralCard
               cardLink=""
               cardIcon={<FaSearch />}

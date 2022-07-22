@@ -1,4 +1,5 @@
 import React from "react";
+import StudentSchedule from "../../components/Tables/StudentSchedule";
 import { UserAuth } from "../../context/AuthContext";
 
 const index = () => {
@@ -10,6 +11,7 @@ const index = () => {
 
   return (
     <div>
+      <StudentSchedule />
       <button onClick={handleLogOut}>Log out</button>
     </div>
   );

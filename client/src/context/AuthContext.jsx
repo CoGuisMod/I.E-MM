@@ -25,6 +25,9 @@ export const AuthContextProvider = ({ children }) => {
   /* User data */
   const [user, setUser] = useState(null);
 
+  /* Schedule data */
+  const [schedule, setSchedule] = useState(null);
+
   /* Users data */
   const [users, setUsers] = useState(null);
 
@@ -64,12 +67,12 @@ export const AuthContextProvider = ({ children }) => {
       return;
     }
     if (finalData.password === password) {
-      setUser(finalData);
+      setUser({ id: email, ...finalData });
       window.localStorage.setItem("user", JSON.stringify(finalData));
-      if (finalData.rol === "student") {
+      if (finalData.rol === "estudiante") {
         navigate("/student");
       }
-      if (finalData.rol === "professor") {
+      if (finalData.rol === "profesor") {
         navigate("/professor");
       }
       if (finalData.rol === "admin") {
@@ -101,6 +104,14 @@ export const AuthContextProvider = ({ children }) => {
     setStudents(finalData);
   };
 
+  const getSchedule = async () => {
+    const docuRef = doc(firebaseFirestore, `users/${user?.id}`);
+    const subCollection = collection(docuRef, "schedule");
+    const initialData = await getDocs(subCollection);
+    const finalData = initialData.docs.map((doc) => doc.data());
+    setSchedule(finalData);
+  };
+
   const getProfessors = async () => {
     const docuRef = collection(firebaseFirestore, "users");
     const condition = where("rol", "==", "profesor");
@@ -123,6 +134,9 @@ export const AuthContextProvider = ({ children }) => {
         /* User ---------- */
         user,
         setUser,
+        getSchedule,
+        schedule,
+        setSchedule,
         /* Users ---------- */
         getUsers,
         users,

@@ -9,6 +9,9 @@ module.exports = {
         "clr-thertiary-one": "#EC4450",
         "clr-thertiary-two": "#E63946",
       },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],

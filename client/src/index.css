@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply bg-clr-secondary-two text-clr-primary;
+  @apply bg-clr-secondary-two font-poppins text-clr-primary;
 }
 
 .main-container {
@@ -24,4 +24,12 @@ html {
 
 .nav-link {
   @apply hover:text-clr-primary/50;
+}
+
+.table-header {
+  @apply font-bold text-lg;
+}
+
+.table-cell {
+  @apply text-black w-full;
 }

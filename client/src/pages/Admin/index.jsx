@@ -1,6 +1,7 @@
 import React from "react";
 import AdminHomeCard from "../../components/Cards/AdminHomeCard";
 import { FaUserGraduate, FaUserTie, FaBookOpen } from "react-icons/fa";
+import StudentSchedule from "../../components/Tables/StudentSchedule";
 
 const index = () => {
   return (
@@ -25,6 +26,7 @@ const index = () => {
           />
         </div>
       </div>
+      <StudentSchedule />
     </section>
   );
 };

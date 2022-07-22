@@ -5,10 +5,10 @@ import { UserAuth } from "../context/AuthContext";
 const LoggedRoute = ({ children }) => {
   const { user } = UserAuth();
 
-  if (user?.rol === "student") {
+  if (user?.rol === "estudiante") {
     return <Navigate to="/student" />;
   }
-  if (user?.rol === "professor") {
+  if (user?.rol === "profesor") {
     return <Navigate to="/professor" />;
   }
   if (user?.rol === "admin") {

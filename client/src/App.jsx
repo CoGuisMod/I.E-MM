@@ -30,6 +30,7 @@ import StudentsDatabaseAdmin from "./pages/admin/Students/Database";
 
 /* Admin - Professor Imports */
 import ProfessorsAdminHome from "./pages/Admin/Professors";
+import ProfessorFormAdmin from "./pages/Admin/Professors/Form";
 import ProfessorsDatabaseAdmin from "./pages/admin/Professors/Database";
 
 /* Admin - Academic Tree Imports */
@@ -103,6 +104,10 @@ const App = () => {
 
             {/* Admin - Professors Routes */}
             <Route path="/admin/professors" element={<ProfessorsAdminHome />} />
+            <Route
+              path="/admin/professors/form"
+              element={<ProfessorFormAdmin />}
+            />
             <Route
               path="/admin/professors/database"
               element={<ProfessorsDatabaseAdmin />}

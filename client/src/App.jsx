@@ -44,6 +44,12 @@ const App = () => {
         <GeneralContextProvider>
           <Navbar />
           <Routes>
+            {/* Page not found */}
+            <Route
+              path="*"
+              element={<h1 className="ml-32">Page not found</h1>}
+            />
+
             {/* LogIn Route -------------------- */}
             <Route
               path="/"

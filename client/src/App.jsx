@@ -8,15 +8,19 @@ import { GeneralContextProvider } from "./context/GeneralContext";
 import Navbar from "./components/Aside/Navbar";
 
 /* LogIn Imports -------------------- */
+import LoggedRoute from "./protectedRoutes/LoggedRoute";
 import LogIn from "./pages/LogIn";
 
 /* Student Imports -------------------- */
+import StudentRoute from "./protectedRoutes/StudentRoute";
 import StudentHome from "./pages/Students";
 
 /* Profesor Imports -------------------- */
+import ProfessorRoute from "./protectedRoutes/ProfessorRoute";
 import ProfessorHome from "./pages/Professors";
 
 /* Admin Imports -------------------- */
+import AdminRoute from "./protectedRoutes/AdminRoute";
 import AdminHome from "./pages/Admin";
 
 /* Admin - Students Imports */
@@ -41,16 +45,44 @@ const App = () => {
           <Navbar />
           <Routes>
             {/* LogIn Route -------------------- */}
-            <Route path="/" element={<LogIn />} />
+            <Route
+              path="/"
+              element={
+                <LoggedRoute>
+                  <LogIn />
+                </LoggedRoute>
+              }
+            />
 
             {/* Students Routes -------------------- */}
-            <Route path="/student" element={<StudentHome />} />
+            <Route
+              path="/student"
+              element={
+                <StudentRoute>
+                  <StudentHome />
+                </StudentRoute>
+              }
+            />
 
             {/* Professors Routes -------------------- */}
-            <Route path="/professor" element={<ProfessorHome />} />
+            <Route
+              path="/professor"
+              element={
+                <ProfessorRoute>
+                  <ProfessorHome />
+                </ProfessorRoute>
+              }
+            />
 
             {/* Admin Routes -------------------- */}
-            <Route path="/admin" element={<AdminHome />} />
+            <Route
+              path="/admin"
+              element={
+                <AdminRoute>
+                  <AdminHome />
+                </AdminRoute>
+              }
+            />
 
             {/* Admin - Students Routes */}
             <Route path="/admin/students" element={<StudentsAdminHome />} />

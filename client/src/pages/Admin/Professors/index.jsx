@@ -1,6 +1,6 @@
 import React from "react";
-import AdminGeneralCard from "../../components/Cards/AdminGeneralCard";
-import { faSearch, faDatabase } from "@fortawesome/free-solid-svg-icons";
+import AdminGeneralCard from "../../../components/Cards/AdminGeneralCard";
+import { FaSearch, FaDatabase } from "react-icons/fa";
 
 const index = () => {
   return (
@@ -10,12 +10,12 @@ const index = () => {
         <div className="general-grid">
           <AdminGeneralCard
             cardLink=""
-            cardIcon={faSearch}
+            cardIcon={<FaSearch />}
             cardTitle="Consultar profesor"
           />
           <AdminGeneralCard
             cardLink="database"
-            cardIcon={faDatabase}
+            cardIcon={<FaDatabase />}
             cardTitle="Base de datos profesores"
           />
         </div>

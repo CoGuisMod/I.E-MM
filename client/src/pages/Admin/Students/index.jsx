@@ -1,12 +1,8 @@
-import React, { useState } from "react";
-import { GeneralData } from "../../context/GeneralContext";
-import AdminGeneralCard from "../../components/Cards/AdminGeneralCard";
-import {
-  faFileAlt,
-  faSearch,
-  faDatabase,
-} from "@fortawesome/free-solid-svg-icons";
-import SearchModal from "../../components/Modals/SearchModal";
+import React from "react";
+import { GeneralData } from "../../../context/GeneralContext";
+import AdminGeneralCard from "../../../components/Cards/AdminGeneralCard";
+import SearchModal from "../../../components/Modals/SearchModal";
+import { FaFileAlt, FaSearch, FaDatabase } from "react-icons/fa";
 
 const index = () => {
   const { setIsShowingModal } = GeneralData();
@@ -21,20 +17,20 @@ const index = () => {
       <div className="sub-container">
         <AdminGeneralCard
           cardLink="form"
-          cardIcon={faFileAlt}
+          cardIcon={<FaFileAlt />}
           cardTitle="Formulario inscripcion"
         />
         <div className="general-grid mt-4">
           <div onClick={handleConsult}>
             <AdminGeneralCard
               cardLink=""
-              cardIcon={faSearch}
+              cardIcon={<FaSearch />}
               cardTitle="Consultar estudiante"
             />
           </div>
           <AdminGeneralCard
             cardLink="database"
-            cardIcon={faDatabase}
+            cardIcon={<FaDatabase />}
             cardTitle="Base de datos estudiantes"
           />
         </div>

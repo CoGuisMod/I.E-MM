@@ -58,7 +58,10 @@ const index = () => {
       </form>
 
       <div className="container_img">
-        <img src="../../assets/chinos.png" alt="" />
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/ie-mm-a2c59.appspot.com/o/pexels-rebecca-zaal-764681.jpg?alt=media&token=f3ba4971-f87f-4119-bd51-94323df0ea42"
+          alt=""
+        />
       </div>
     </div>
   );

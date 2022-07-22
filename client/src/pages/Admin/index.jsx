@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  faUserTie,
-  faUserGraduate,
-  faBookOpen,
-} from "@fortawesome/free-solid-svg-icons";
 import AdminHomeCard from "../../components/Cards/AdminHomeCard";
+import { FaUserGraduate, FaUserTie, FaBookOpen } from "react-icons/fa";
 
 const index = () => {
   return (
@@ -14,17 +10,17 @@ const index = () => {
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl h-full max-h-60">
           <AdminHomeCard
             cardLink="/admin/students"
-            cardIcon={faUserGraduate}
+            cardIcon={<FaUserGraduate />}
             cardTitle="Estudiantes"
           />
           <AdminHomeCard
             cardLink="/admin/professors"
-            cardIcon={faUserTie}
+            cardIcon={<FaUserTie />}
             cardTitle="Profesores"
           />
           <AdminHomeCard
             cardLink="/admin/academic_tree"
-            cardIcon={faBookOpen}
+            cardIcon={<FaBookOpen />}
             cardTitle="Malla Curricular"
           />
         </div>

@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  @apply bg-clr-secondary-two text-clr-primary;
+}
+
+.main-container {
+  @apply flex flex-col h-screen pl-24 pr-4 py-4;
+}
+
+.main-title {
+  @apply font-bold text-3xl;
+}
+
+.sub-container {
+  @apply flex flex-col justify-start items-start mt-8;
+}
+
+.general-grid {
+  @apply grid sm:grid-cols-2 gap-2;
+}
+
+.nav-link {
+  @apply hover:text-clr-primary/50;
+}

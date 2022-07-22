@@ -20,12 +20,25 @@ import { useNavigate } from "react-router-dom";
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  /* User data */
   const [user, setUser] = useState(null);
-  const [users, setUsers] = useState(null);
-  const [message, setMessage] = useState("");
 
+  /* Users data */
+  const [users, setUsers] = useState(null);
+
+  /* Users updater */
   const [updateUsers, setUpdateUsers] = useState(false);
 
+  /* Students data */
+  const [students, setStudents] = useState(null);
+
+  /* Professors data */
+  const [professors, setProfessors] = useState(null);
+
+  /* Message data */
+  const [message, setMessage] = useState("");
+
+  /* Navigate */
   const navigate = useNavigate();
 
   const signUp = async (email, password, rol, firstName, lastName) => {
@@ -43,6 +56,7 @@ export const AuthContextProvider = ({ children }) => {
     const docuRef = doc(firebaseFirestore, `users/${email}`);
     const initialData = await getDoc(docuRef);
     const finalData = initialData.data();
+    console.log(finalData);
     if (finalData.password !== password) {
       setMessage("Contraseña incorrecta");
       return;
@@ -50,11 +64,11 @@ export const AuthContextProvider = ({ children }) => {
     if (finalData.password === password) {
       setUser(finalData);
       window.localStorage.setItem("user", JSON.stringify(finalData));
-      if (finalData.rol === "seller") {
-        navigate("/seller");
+      if (finalData.rol === "student") {
+        navigate("/student");
       }
-      if (finalData.rol === "mechanic") {
-        navigate("/mechanic");
+      if (finalData.rol === "professor") {
+        navigate("/professor");
       }
       if (finalData.rol === "admin") {
         navigate("/admin");
@@ -70,16 +84,27 @@ export const AuthContextProvider = ({ children }) => {
     navigate("/");
   };
 
-  const deleteUser = async (email) => {
-    const docuRef = doc(firebaseFirestore, `users`, email);
-    await deleteDoc(docuRef);
-  };
-
   const getUsers = async () => {
     const docuRef = collection(firebaseFirestore, "users");
     const initialData = await getDocs(docuRef);
     const finalData = initialData.docs.map((doc) => doc.data());
     setUsers(finalData);
+  };
+
+  const getStudents = async () => {
+    const docuRef = collection(firebaseFirestore, "users");
+    const condition = where("rol", "==", "estudiante");
+    const initialData = await getDocs(query(docuRef, condition));
+    const finalData = initialData.docs.map((doc) => doc.data());
+    setStudents(finalData);
+  };
+
+  const getProfessors = async () => {
+    const docuRef = collection(firebaseFirestore, "users");
+    const condition = where("rol", "==", "profesor");
+    const initialData = await getDocs(query(docuRef, condition));
+    const finalData = initialData.docs.map((doc) => doc.data());
+    setProfessors(finalData);
   };
 
   useEffect(() => {
@@ -89,19 +114,30 @@ export const AuthContextProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
+        /* Authorization ---------- */
         signUp,
         logIn,
         logOut,
+        /* User ---------- */
         user,
         setUser,
-        deleteUser,
+        /* Users ---------- */
         getUsers,
         users,
         setUsers,
-        message,
-        setMessage,
         updateUsers,
         setUpdateUsers,
+        /* Estudents ---------- */
+        getStudents,
+        students,
+        setStudents,
+        /* Professors ---------- */
+        getProfessors,
+        professors,
+        setProfessors,
+        /* Message ---------- */
+        message,
+        setMessage,
       }}
     >
       {children}
